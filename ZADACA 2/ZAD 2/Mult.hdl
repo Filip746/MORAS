@@ -1,0 +1,69 @@
+CHIP Mult{
+
+    IN  a[16], b[16]; 
+    OUT out[16]; 
+
+    PARTS:
+    Mux16(a=false, b=a, sel=b[0], out=o0); 
+    BitShiftL(in=a, out=l1);
+
+    Mux16(a=false, b=l1, sel=b[1], out=o1);
+    BitShiftL(in=l1, out=l2);
+    Add16(a=o0, b=o1, out=r0);
+
+    Mux16(a=false, b=l2, sel=b[2], out=o2);
+    BitShiftL(in=l2, out=l3);
+    Add16(a=r0, b=o2, out=r1);
+
+    Mux16(a=false, b=l3, sel=b[3], out=o3);
+    BitShiftL(in=l3, out=l4);
+    Add16(a=r1, b=o3, out=r2);
+    
+    Mux16(a=false, b=l4, sel=b[4], out=o4);
+    BitShiftL(in=l4, out=l5);
+    Add16(a=r2, b=o4, out=r3);
+    
+    Mux16(a=false, b=l5, sel=b[5], out=o5);
+    BitShiftL(in=l5, out=l6);
+    Add16(a=r3, b=o5, out=r4);
+    
+    Mux16(a=false, b=l6, sel=b[6], out=o6);
+    BitShiftL(in=l6, out=l7);
+    Add16(a=r4, b=o6, out=r5);
+    
+    Mux16(a=false, b=l7, sel=b[7], out=o7);
+    BitShiftL(in=l7, out=l8);
+    Add16(a=r5, b=o7, out=r6);
+    
+    Mux16(a=false, b=l8, sel=b[8], out=o8);
+    BitShiftL(in=l8, out=l9);
+    Add16(a=r6, b=o8, out=r7);
+    
+    Mux16(a=false, b=l9, sel=b[9], out=o9);
+    BitShiftL(in=l9, out=l10);
+    Add16(a=r7, b=o9, out=r8);
+    
+    Mux16(a=false, b=l10, sel=b[10], out=o10);
+    BitShiftL(in=l10, out=l11);
+    Add16(a=r8, b=o10, out=r9);
+    
+    Mux16(a=false, b=l11, sel=b[11], out=o11);
+    BitShiftL(in=l11, out=l12);
+    Add16(a=r9, b=o11, out=r10);
+    
+    Mux16(a=false, b=l12, sel=b[12], out=o12);
+    BitShiftL(in=l12, out=l13);
+    Add16(a=r10, b=o12, out=r11);
+    
+    Mux16(a=false, b=l13, sel=b[13], out=o13);
+    BitShiftL(in=l13, out=l14);
+    Add16(a=r11, b=o13, out=r12);
+    
+    Mux16(a=false, b=l14, sel=b[14], out=o14);
+    BitShiftL(in=l14, out=l15);
+    Add16(a=r12, b=o14, out=r13);
+    
+    Mux16(a=false, b=l15, sel=b[15], out=o15);
+    Add16(a=r13, b=o15, out=out);
+
+}
