@@ -10,7 +10,7 @@ D = M
 @R5
 D = D - M
 
-//napravi promjenu na D, ako je R1 (trenutni max) - R5 < 0 (tj ako je R1 < R5)
+//napravi promjenu na D, ako je R1 - R5 < 0 (tj ako je R1 < R5)
 //i postavi R5 na trenutni max
 
 @Promjena1
@@ -22,7 +22,7 @@ D = M
 @R5
 M = D
 
-(Promjena1)
+(Pro1)
 
 @R2
 D = M
@@ -39,7 +39,7 @@ D = M
 @R5
 M = D
 
-(Promjena2)
+(Pro2)
 @R3
 D = M
 
@@ -55,7 +55,7 @@ D = M
 @R5
 M = D
 
-(Promjena3)
+(Pro3)
 @R4
 D = M
 
@@ -71,7 +71,7 @@ D = M
 @R5
 M = D
 
-(Promjena4)
+(Pro4)
 
 (END)
 @END
