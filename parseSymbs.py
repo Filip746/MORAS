@@ -19,37 +19,37 @@ def _parse_macro(self, line, m, n):
         self._errm = "Invalid macro operation."
         return ""
     
-    operation = line[1:].split("(")[0]
-    if operation == "MV":
-        if len(operation[1].split(",")) != 2:  #splitamo a i b po zarezu
+    op = line[1:].split("(")[0]
+    if op == "MV":
+        if len(op[1].split(",")) != 2:
             self._flag = False
             self._line = n
             self._errm = "Invalid macro operation."
             return ""
-        a = operation[1].split(",")[0]
-        b = operation[1].split(",")[1]
+        a = op[1].split(",")[0]
+        b = op[1].split(",")[1]
         return "@" + a + "\n" + "D=M" + "\n" + "@" + b + "\n" + "M=D"
         
-    elif operation == "SWP":
-        if (operation[1].split(",")) != 2:
+    elif op == "SWP":
+        if (op[1].split(",")) != 2:
             self._flag = False
             self._line = n
             self._errm = "Invalid macro operation."
             return ""
-        a = operation[1].split(",")[0]
-        b = operation[1].split(",")[1]
+        a = op[1].split(",")[0]
+        b = op[1].split(",")[1]
         return  "@" + a + "\n" + "D=M" + "\n" + "@" + "H" + "\n" + "M=D" + "\n" + "@" + b + "\n" + "D=M" + "\n" + "@" + a \
                 + "\n" + "M=D" + "\n" + "@" + "H" + "\n" "D=M" + "\n" + "@" + b + "\n" + "M=D"
         
-    elif operation == "SUM":
-        if len(operation[1].split(",")) != 3:
+    elif op == "SUM":
+        if len(op[1].split(",")) != 3:
             self._flag = False
             self._line = n
             self._errm = "Invalid macro operation."
             return ""
-        a = operation[1].split(",")[0]
-        b = operation[1].split(",")[1]
-        c = operation[1].split(",")[2]
+        a = op[1].split(",")[0]
+        b = op[1].split(",")[1]
+        c = op[1].split(",")[2]
         return "@" + a + "\n" + "D=M" + "\n" + "@" + b + "\n" + "D=M+D" + "\n" + "@" + c + "\n" + "M=D"   
     else:
         self._flag = False
