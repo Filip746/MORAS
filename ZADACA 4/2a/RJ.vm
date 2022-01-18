@@ -1,0 +1,60 @@
+function RJ.mid 3
+push argument 0
+push argument 1
+gt
+if-goto FIRST_LARGER
+goto SECOND_LARGER
+
+label FIRST_LARGER
+push argument 1
+push argument 2
+gt
+if-goto RETURN_SECOND
+goto THIRD
+
+label RETURN_SECOND
+push argument 1
+return
+
+label THIRD
+push argument 0
+push argument 2
+lt
+if-goto RETURN_FIRST
+goto RETURN_THIRD
+
+label RETURN_FIRST
+push argument 0
+return
+
+label RETURN_THIRD
+push argument 2
+return
+
+
+
+label SECOND_LARGER
+push argument 1
+push argument 2
+lt
+if-goto RETURN_SECOND_2
+goto THIRD_2
+
+label RETURN_SECOND_2
+push argument 1
+return
+
+label THIRD_2
+push argument 0
+push argument 2
+gt
+if-goto RETURN_FIRST_2
+goto RETURN_THIRD_2
+
+label RETURN_FIRST_2
+push argument 0
+return
+
+label RETURN_THIRD_2
+push argument 2
+return
