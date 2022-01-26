@@ -1,0 +1,9 @@
+class Main
+{
+	function void main() 
+	{
+        do Graph.DrawCoordinateSystem();
+        do Graph.DrawFunction();	
+		return;
+	}
+}

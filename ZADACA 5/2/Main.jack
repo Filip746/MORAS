@@ -1,0 +1,72 @@
+class Main
+{
+    function void main()
+    {
+        var Vint vecX, vecY;
+
+        let vecX = Vint.new(2);
+        let vecY = Vint.new(3);
+        do vecX.print();
+        do vecY.print();
+        do Output.printInt(vecX.len());
+        do Output.printString(" ");
+        do Output.printInt(vecY.len());
+        do Output.println();
+
+        do vecX.set(0, 10);
+        do vecX.set(3, 5);
+
+        do vecY.set(6, 10);
+        do vecY.set(4, 5);
+
+        do vecX.set(100, 2);
+        do vecX.set(-5, 4);
+
+        do vecY.set(10, 7);
+        do vecY.set(-25, 1);
+
+        do vecX.print();
+        do vecY.print();
+
+        do vecX.resize(3);
+        do vecX.print();
+
+        do Output.printInt(vecX.get(7));
+        do Output.println();
+        do Output.printInt(vecX.get(10));
+        do Output.println();
+        do Output.printInt(vecX.get(-7));
+        do Output.println();
+
+        do Output.printInt(vecY.get(0));
+        do Output.println();
+        do Output.printInt(vecY.get(30));
+        do Output.println();
+        do Output.printInt(vecY.get(-77));
+        do Output.println();
+
+        if (Vint.is_eq(vecX, vecY) = true)
+        {
+            do Output.printString("Vektori su jednaki.");
+            do Output.println();
+        }
+        else
+        {
+            do Output.printString("Vektori nisu jednaki.");
+            do Output.println();
+        }
+
+
+        if (Vint.elems(vecX, vecY) = true)
+        {
+            do Output.printString("Vektori imaju iste elemente.");
+            do Output.println();
+        }
+        else
+        {
+            do Output.printString("Vektori imaju razlicite elemente.");
+            do Output.println();
+        }
+        return;
+    }
+}

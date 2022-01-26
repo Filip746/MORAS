@@ -1,0 +1,33 @@
+class Graph
+{
+    function void DrawCoordinateSystem()
+	{
+	    do Screen.drawLine(0,128,255,128);
+		do Screen.drawLine(127,0,127,255);
+		return;
+	}
+	
+	function void DrawFunction()
+	{
+	    var int x, y, sredina;
+		let sredina = 128;
+		let x = (-32);
+
+		while(x < 33){
+			let y = (-Graph.f(x));
+			if ((y > (-33)) & (y < 33))
+			{
+				do Screen.drawPixel((sredina+x), (sredina+y));
+				
+			}else{}
+			let x = x + 1;
+		}
+		return;
+	}
+
+	function int f (int x)
+	{
+		return ((x * x) - (4 * x) - 1);
+	}
+
+}

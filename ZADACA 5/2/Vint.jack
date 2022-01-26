@@ -1,0 +1,202 @@
+class Vint
+{
+   field int size,capacity;
+   field Array arr;
+   constructor Vint new(int n)
+   {
+      var int i;
+      if(n<0)
+	  {
+	    let size = 0;
+		let capacity = 1;
+		let arr = Array.new(capacity);
+	  }
+	  else
+	  {
+	    let size = 0;
+		let i = 1;
+		while(i<n)
+        {
+		   let i = i*2;
+		}
+		let capacity = i;
+		let arr = Array.new(capacity);
+	  }
+	  return this;
+   }
+   
+   	method void push_back(int n)
+	{
+		var Array temp;
+		var int i;
+		let arr[size] = n;
+		let size = size + 1;
+		if(size = capacity)
+		{
+			let capacity = capacity * 2;
+			let i = 0; 
+			let temp = Array.new(capacity);
+			while(i < size)
+			{
+				let temp[i] = arr[i];
+				let i = i + 1;
+			}
+			do arr.dispose();
+			let arr = Array.new(capacity);
+			let i = 0;
+			while(i < size)
+			{
+				let arr[i] = temp[i];
+				let i = i + 1;
+			}
+			do temp.dispose();
+		}
+		return;
+	}
+	
+	method void delete()
+	{
+	   if(size=0)
+	   {
+	       do Output.printString("error");
+	   }
+	   else
+	   {
+	   let size = size-1;
+	   }
+	   return;
+	}
+   
+    method int len()
+	{
+		return capacity;
+	}
+   
+   	method void set(int k, int v)
+	{
+		let arr[k] = v;
+		return;
+	}
+	
+	method int get(int k)
+	{
+		return arr[k];
+	}
+
+	method Array getArray()
+    {
+        return arr;
+    }
+	
+	method int get_size()
+	{
+		return size;
+	}
+	
+	method void resize(int m)
+	{
+	    var Array temp;
+		var int i;
+		let i = 1;
+		while(m>0)
+		{
+		    let i = i*2;
+			let m = m-1;
+		}
+		if(i < size)
+		{
+		    let size = i;
+			let capacity = i*2;
+		}
+		else
+		{
+		    let capacity = i;
+		}
+		let temp = Array.new(i);
+		let i = 0;
+		while(i < size)
+		{
+			let temp[i] = arr[i];
+			let i = i+1;
+		}
+		do arr.dispose();
+		let arr = Array.new(capacity);
+		let i = 0;
+		while(i < size)
+		{
+			let arr[i] = temp[i];
+			let i = i+1;
+		}
+		do temp.dispose();
+	
+		return;
+	}
+	
+	function bool is_eq(Vint x, Vint y)
+    {
+        var int i;
+        
+        if (~(x.len() = y.len()))
+        {
+            return false;
+        }
+
+        while(i < x.len())
+        {
+            if (~(x.get(i) = y.get(i)))
+            {
+                return false;
+            }
+            let i = i + 1;
+        }
+
+        return true;
+
+    }   
+	
+	method void print()
+	{
+		var int i;
+		var string s;
+		let i = 0;
+		while(i < size){
+			do Output.printInt(arr[i]);
+			do Output.printString(" ");
+			let i = i + 1;
+		}
+		do Output.printChar(String.newLine());
+		
+		return;
+	}
+
+    function bool elems (Vint x, Vint y)
+    {
+        var Array arrA, arrB;
+        var int duljA, duljB, i;
+        let duljA = x.len();
+        let duljB = y.len();
+
+        if (duljA = duljB)
+        {
+            let arrA = x.getArray();
+            let arrB = y.getArray();
+
+            do QuickSort.sort(arrA, 0, x.len() - 1);
+            do QuickSort.sort(arrB, 0, y.len() - 1);
+
+            while(i < duljA)
+            {
+                if (~(arrA[i] = arrB[i]))
+                {
+                    return false;
+                }
+                let i = i + 1;
+            }
+            return true;
+        }
+        else 
+		{ 
+		  return false; 
+		}
+    }
+} 
