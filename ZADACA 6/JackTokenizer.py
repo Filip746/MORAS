@@ -3,7 +3,7 @@ from JackError import *
 
 #
 #   Konstante.
-#
+# 
 
 # Tipovi tokena.
 TK_NONE = 6
